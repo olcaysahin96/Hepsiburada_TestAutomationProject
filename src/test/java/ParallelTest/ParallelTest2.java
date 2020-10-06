@@ -4,7 +4,6 @@ import StepDefinitions.Base;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -23,9 +22,8 @@ public class ParallelTest2 extends Base {
         WebElement bookMusicMovieHobby = driver.findElement(By.xpath(bookMusicMovieHobbyMenu));
         bookMusicMovieHobby.click();
         WebElement remoteControlVehicle = driver.findElement(By.xpath(remoteControlVehicles));
-        Actions actions = new Actions(driver);
-        actions.moveToElement(bookMusicMovieHobby).build().perform();
-        actions.moveToElement(remoteControlVehicle).build().perform();
+        Actions(bookMusicMovieHobby);
+        Actions(remoteControlVehicle);
         remoteControlVehicle.click();
         Thread.sleep(5000);
         //Scroll vertically down by 500 pixels
@@ -35,7 +33,7 @@ public class ParallelTest2 extends Base {
         driver.findElement(By.xpath(droneSpareParts)).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement droneSparePart = driver.findElement(By.xpath(thirdDroneProduct));
-        actions.moveToElement(droneSparePart).build().perform();
+        Actions(droneSparePart);
         droneSparePart.click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         WebElement addTheProductToTheBasket = driver.findElement(By.id(addToCart));
