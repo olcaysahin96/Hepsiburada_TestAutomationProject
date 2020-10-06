@@ -26,9 +26,8 @@ public class ParallelTest1 extends Base {
         WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("myAccount")));
         loginButton.click();
         WebElement login = driver.findElement(By.id("login"));
-        Actions actions = new Actions(driver);
-        actions.moveToElement(loginButton).build().perform();
-        actions.moveToElement(login).build().perform();
+        Actions(loginButton);
+        Actions(login);
         login.click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement username = driver.findElement(By.id("txtUserName"));
@@ -53,7 +52,7 @@ public class ParallelTest1 extends Base {
         //driver.findElement(By.cssSelector(closeBox)).click();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement sellers = driver.findElement(By.xpath(allSellers));
-        actions.moveToElement(sellers).build().perform();
+        Actions(sellers);
         sellers.click();
         WebElement addBasket = driver.findElement(By.xpath(addToBasket));
         addBasket.click();
